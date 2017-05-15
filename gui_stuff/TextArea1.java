@@ -5,6 +5,7 @@ import java.awt.event.*;
 public class TextArea1 implements ActionListener {
 	
 	JTextArea tArea;
+	JCheckBox check;
 	int buttonPressCount = 0;
 
 	public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class TextArea1 implements ActionListener {
 		JFrame frame = new JFrame("Text Area Practice");
 
 		JPanel panel = new JPanel();
+
+		check = new JCheckBox("Add counter");
 
 		JButton button = new JButton("Click this button, see what happens bud.");
 
@@ -38,7 +41,7 @@ public class TextArea1 implements ActionListener {
 
 		//add scroll pane to panel
 		panel.add(scroller);
-
+		panel.add(check);
 		//add panel and button to frame
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.getContentPane().add(BorderLayout.SOUTH, button);
@@ -59,16 +62,20 @@ public class TextArea1 implements ActionListener {
 		
 		tArea.append("Button clicked \n");
 		
-		//deals with grammar
-		if(buttonPressCount > 1) {
-			tArea.append("You have pressed the button " + buttonPressCount + " times!\n");
-			System.out.println("times");
-		}
-		else {
-			tArea.append("You have pressed the button " + buttonPressCount + " time!\n");
-			System.out.println("times");
+		//deals with grammar and if check box is selected
+		if(check.isSelected())
+		{
+			if(buttonPressCount > 1) {
+				tArea.append("You have pressed the button " + buttonPressCount + " times!\n");
+				//System.out.println("times");
+			}
+			else {
+				tArea.append("You have pressed the button " + buttonPressCount + " time!\n");
+				//System.out.println("time");
 
-		}	
+			}	
+		}
+				
 		
 	}
 
