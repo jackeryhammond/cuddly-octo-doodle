@@ -5,6 +5,7 @@ import java.awt.event.*;
 public class TextArea1 implements ActionListener {
 	
 	JTextArea tArea;
+	int buttonPressCount = 0;
 
 	public static void main(String[] args) {
 
@@ -25,7 +26,7 @@ public class TextArea1 implements ActionListener {
 		button.addActionListener(this);
 
 		//make text area
-		tArea = new JTextArea(10, 20);
+		tArea = new JTextArea(10, 23);
 		tArea.setLineWrap(true);
 
 		//make scroll pane
@@ -43,6 +44,7 @@ public class TextArea1 implements ActionListener {
 		frame.getContentPane().add(BorderLayout.SOUTH, button);
 
 		//finishing touches
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(350, 300);
 		frame.setVisible(true);
 		
@@ -52,7 +54,22 @@ public class TextArea1 implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent event) {
-		tArea.append("Button clicked! \n");
+		
+		buttonPressCount++;
+		
+		tArea.append("Button clicked \n");
+		
+		//deals with grammar
+		if(buttonPressCount > 1) {
+			tArea.append("You have pressed the button " + buttonPressCount + " times!\n");
+			System.out.println("times");
+		}
+		else {
+			tArea.append("You have pressed the button " + buttonPressCount + " time!\n");
+			System.out.println("times");
+
+		}	
+		
 	}
 
 }
