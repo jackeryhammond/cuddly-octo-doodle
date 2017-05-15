@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//just a class to play with some swing components. Mainy JLists, using JButtons/labels/etc to manipulate and change 
+//behaviour based on these components.
+
 public class ListPractice implements ActionListener {
 	
 	JList list;
