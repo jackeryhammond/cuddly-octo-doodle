@@ -94,6 +94,10 @@ public class BeatBox {
 		downTempo.addActionListener(new MyDownTempoListener());
 		buttonBox.add(downTempo);
 
+		JButton clearBoxes = new JButton("Clear");
+		clearBoxes.addActionListener(new MyClearListener());
+		buttonBox.add(clearBoxes);
+
 		//Make box object for name labels
 		Box nameBox = new Box(BoxLayout.Y_AXIS);
 		for(int i = 0; i < 16; i++) {
@@ -214,6 +218,14 @@ public class BeatBox {
 		return event;
 	}
 
+	public void clearButtons() {
+
+		for(int i = 0; i < 256; i++) {
+			JCheckBox c = checkboxList.get(i);
+			c.setSelected(false);
+		}
+	}
+
 	//INNER CLASSES
 	//*********************************************************
 
@@ -245,4 +257,25 @@ public class BeatBox {
 		}
 	}
 
+	public class MyClearListener implements ActionListener {
+		public void actionPerformed(ActionEvent event){
+			clearButtons();
+		}
+	}
+
 }
+
+/*
+
+functionality to be added:
+
+	- hear beat that will play when you click on a beat (better than just working out what it sounds like from playing)
+	- improve gui (add colour)
+		- change buttons to different colours for different instruments
+		- maybe make buttons like a box, instead of a check box, so it looks more like a beat box
+		- make buttons less like buttons, so have a plus and minus around the tempo counter (once implemented)
+	- have a display that shows the beats
+	- have a manual change of beat where you can enter your own number
+	- 
+
+*/
